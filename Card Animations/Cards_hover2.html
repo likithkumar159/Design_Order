@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cards_hover2</title>
+  <style>
+    body {
+      font-family: Open-sans, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #FFFFF0;
+    }
+
+    section {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+      grid-column-gap: 1rem;
+      grid-row-gap: 1rem;
+      /*   background-color: red; */
+    }
+
+    .card {
+      display: flex;
+      position: relative;
+      width: 400px;
+      height: 250px;
+      background-color: blue;
+      transition: transform 1s;
+    }
+
+    .card:hover {
+      transform: scale(1.05, 1.05);
+    }
+
+    .card-cover {
+      display: flex;
+      position: absolute;
+      font-size: 2rem;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.75) 100%);
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    .card:hover .card-cover {
+      opacity: 1;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      background-color: #1A1A1A;
+      object-fit: cover;
+    }
+
+    .card-body {
+      width: 100%;
+      max-width: 100%;
+      position: absolute;
+      bottom: 0;
+      color: white;
+      opacity: 0;
+      transition: opacity 1s;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .card:hover .card-body {
+      opacity: 1
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+
+  <body>
+    <section>
+      <div class="card">
+        <div class="card-cover">
+        </div>
+        <img class="card-image" src="https://cdn.pixabay.com/photo/2015/10/02/15/59/olive-oil-968657_960_720.jpg" />
+        <div class="card-body">
+          <h2>Olive Oil</h2>
+          <p>Our premium olive oil is perfect for cooking, marinades, and dressings.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-cover">
+        </div>
+        <img class="card-image" src="https://cdn.pixabay.com/photo/2016/04/15/08/04/strawberry-1330459__340.jpg" />
+        <div class="card-body">
+          <h2>Strawberry</h2>
+          <p>Our strawberries are plump, juicy, and bursting with sweet, succulent flavor.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-cover">
+        </div>
+        <img class="card-image" src="https://cdn.pixabay.com/photo/2010/12/13/10/24/cheese-2785__340.jpg" />
+        <div class="card-body">
+          <h2>Cheese</h2>
+          <p>Our cheese is made from the highest quality milk and carefully aged to perfection, resulting in a creamy
+            texture.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-cover">
+        </div>
+        <img class="card-image" src="https://cdn.pixabay.com/photo/2018/06/10/20/30/bread-3467243__340.jpg" />
+        <div class="card-body">
+          <h2>Bread</h2>
+          <p>Our bread has that's perfect for sandwiches, toast, and more.</p>
+        </div>
+      </div>
+    </section>
+  </body>
+  <!-- partial -->
+
+</body>
+
+</html>

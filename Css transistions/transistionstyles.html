@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>transistionstyles</title>
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <style>
+    .square {
+      width: 150px;
+      height: 150px;
+      margin: 1rem 0 2rem 1rem;
+      background-color: blue;
+      position: relative;
+    }
+
+    /* Blue to green */
+    #color .square {
+      transition-property: background-color;
+      transition-duration: 5s;
+    }
+
+    #color .square:hover {
+      background-color: green;
+    }
+
+
+    /* Square to circle */
+    #circle .square {
+      transition: border-radius 2s 5s, background-color 3s 2s;
+    }
+
+    #circle .square:hover {
+      border-radius: 50%;
+      background-color: purple;
+    }
+
+    #skew .square {
+      background-color: purple;
+      transition: transform 2s;
+    }
+
+    #skew .square:hover {
+      transform: skewX(20deg);
+    }
+
+    #scale .square div {
+      background-color: #000;
+      position: absolute;
+      left: 25%;
+      top: 25%;
+      width: 75px;
+      height: 75px;
+      transition: transform 5s, background-color 2s 1s;
+    }
+
+    #scale .square div:hover {
+      background-color: blue;
+      transform: scale(2, 2);
+    }
+
+    #rotate .square {
+      background-color: tomato;
+      text-align: center;
+      color: white;
+      transition: transform 5s;
+    }
+
+    #rotate .square:hover {
+      transform: rotate(360deg);
+    }
+
+    #translate .square {
+      background-color: orange;
+      transition: transform 5s ease-in, background-color 3s 1s;
+    }
+
+    #translate .square:hover {
+      background-color: green;
+      transform: translateX(900px) rotate(360deg);
+    }
+
+    #rotate-gears {
+      display: block;
+    }
+
+    #rotate-gears img {
+      position: relative;
+    }
+
+    .big_gear {
+      border: 1px solid gray;
+      top: 0px;
+      left: 300px;
+      transition: transform 12s 2s ease-in;
+    }
+
+    .small_gear {
+      border: 1px solid gray;
+      top: 0px;
+      left: -177px;
+      transition: transform 10s ease-in;
+    }
+
+    #rotate-gears:hover>.small_gear {
+      transform: rotate(-360deg);
+    }
+
+    #rotate-gears:hover>.big_gear {
+      transform: rotate(360deg);
+    }
+
+    .box {
+      width: 220px;
+      height: 220px;
+      display: inline-block;
+      margin: 50px 50px;
+      border: 1px solid black;
+      position: relative;
+      perspective: 600px;
+    }
+
+    .box div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 2s;
+    }
+
+    .rotate3d {
+      background: hsla(240, 70%, 50%, 0.5);
+    }
+
+    .translate3d {
+      background: hsla(120, 70%, 50%, 0.5);
+    }
+
+    .scale3d {
+      background: hsla(320, 70%, 50%, 0.5);
+    }
+
+    .rotate3d:hover {
+      /*   transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); */
+      transform: rotate3d(1, 1, 1, 360deg);
+    }
+
+    .translate3d:hover {
+      /*   transform: translateX(40px) translateY(40px) translateZ(50px); */
+      transform: translate3d(40px, 40px, 70px);
+    }
+
+    .scale3d:hover {
+      transform: scale3d(1.5, 1.5, 1.5);
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <h2>CSS Transition</h2>
+
+  <section id="color">
+    <h3>Blue to green</h3>
+    <div class="square"></div>
+  </section>
+  <hr>
+
+  <section id="circle">
+    <h3>Square to circle</h3>
+    <div class="square"></div>
+  </section>
+  <hr>
+  <hr>
+
+
+  <h2>2DTransition &amp; Transform</h2><br>
+
+
+  <!-- The skew() method  -->
+  <section id='skew'>
+
+    <h3>The skew() method</h3>
+
+    <p>skews an element along the X and Y-axis by the given angle.</p>
+
+
+    <div class='square'>
+    </div>
+
+    <hr>
+  </section>
+
+
+  <!-- The scale() method -->
+  <section id='scale'>
+
+    <h3>The scale() method</h3>
+
+    <p>increases or decreases the size of an element.</p>
+
+    <div class='square'>
+
+      <div></div>
+    </div>
+
+    <hr>
+  </section>
+
+
+  <!-- The rotate() method -->
+  <section id='rotate'>
+
+    <h3>The rotate() method</h3>
+
+    <p>rotates an element clockwise or counter-clockwise according to a given degree.</p>
+
+    <div class='square'>
+      Rotate me
+    </div>
+
+    <hr>
+  </section>
+
+
+  <!-- The translate() method  -->
+  <section id='translate'>
+
+    <h3>The translate() method</h3>
+
+    <p>moves an element from its current position. This div element is moved 900 pixels to the right.</p>
+
+    <div class='square'>
+    </div>
+
+    <hr>
+  </section>
+
+  <section>
+    <h3>Rotating Gears</h3>
+    <p>Mouse over the gears to start the animation</p>
+
+    <div id="rotate-gears">
+      <img class='big_gear' src="http://res.cloudinary.com/yuzub/image/upload/v1503790877/big_gear_ywagoi.png"
+        alt="big gear" />
+
+      <img class='small_gear' src="http://res.cloudinary.com/yuzub/image/upload/v1503790880/small_gear_yohz6m.png"
+        alt="small gear" />
+    </div>
+  </section>
+
+  <h2>3D Transition</h2>
+
+  <section>
+    <div class="box">
+      <div class="rotate3d">
+        <figure>Rotate 3D</figure>
+      </div>
+    </div>
+    <div class="box">
+      <div class="translate3d">
+        <figure>Translate 3D</figure>
+      </div>
+    </div>
+    <div class="box">
+      <div class="scale3d">
+        <figure>Scale 3D</figure>
+      </div>
+    </div>
+  </section>
+  <!-- partial -->
+
+</body>
+
+</html>

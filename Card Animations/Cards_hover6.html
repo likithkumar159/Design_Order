@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards_hover6</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      box-sizing: border-box;
+      transition: 0.2s;
+    }
+
+    body {
+      background: linear-gradient(to right, #8e9eab, #eef2f3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, -apple-system, system-ui, ".SFNSText-Regular", sans-serif;
+      letter-spacing: .03em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    i {
+      letter-spacing: 0;
+    }
+
+    /* .scroll {
+	overflow: scroll !important;
+} */
+
+    .item {
+      width: 400px;
+      height: 500px;
+      background: #fff;
+      position: relative;
+      box-shadow: -15px 7px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .item .img {
+      width: 100%;
+      height: 50%;
+      background: black;
+      border-radius: 10px 10px 0 0;
+      position: absolute;
+      z-index: 5;
+      overflow: hidden;
+    }
+
+    .item .img-content {
+      width: 100%;
+      height: 100%;
+      transition: 0 !important;
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/26th_Tokyo_International_Film_Festival-_Tom_Hanks_from_Captain_Phillips_%2814970103713%29.jpg/640px-26th_Tokyo_International_Film_Festival-_Tom_Hanks_from_Captain_Phillips_%2814970103713%29.jpg);
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+    }
+
+    .item.showfull .text-container {
+      height: 90%;
+    }
+
+    .item.showfull .content {
+      height: 78%;
+    }
+
+    .item.showfull .social {
+      top: 25px;
+    }
+
+    .item.showfull .img-content {
+      transform: scale(1.04);
+      filter: blur(5px);
+    }
+
+    .item.showfull .like {
+      margin-top: 100px;
+    }
+
+    .item .text-container {
+      width: 100%;
+      height: 55%;
+      background: #fff;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+      box-shadow: -3px -10px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      padding: 30px 20px 20px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item .content {
+      height: 63%;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .item .social {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      z-index: 15;
+      top: 40%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .item h2 {
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .item .social div {
+      width: 50px;
+      height: 50px;
+      background: green;
+      margin: 0 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .item .social div:hover {
+      transform: scale(1.1);
+    }
+
+    .item .social a:last-child {
+      margin-right: 20px;
+    }
+
+    .item a .tw {
+      background-color: #0084b4;
+    }
+
+    .item a .fb {
+      background-color: #3b5998;
+    }
+
+    .item a .ig {
+      background-color: #cd486b;
+    }
+
+    .item .like {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: #a37f7f;
+      border-radius: 50%;
+      color: #fff;
+      right: 30px;
+      top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .item .like:hover {
+      transform: scale(1.1);
+    }
+
+    .item .like i {
+      font-size: 15px;
+    }
+
+    .item .like.clicked {
+      background: #ffcece;
+    }
+
+    .item .like.clicked i {
+      color: #e60026;
+    }
+
+    .item .readmore {
+      display: flex;
+      padding-bottom: 5px;
+    }
+
+    .item .readmore h3 {
+      display: block;
+      padding: 10px 15px;
+      border-radius: 40px;
+      border: 1px solid;
+      cursor: pointer;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="item-list">
+      <div class="item item-1">
+        <div class="img"><a href="javascript:;">
+            <div class="like"><i class="fa fa-heart" aria-hidden="true"></i></div>
+          </a>
+          <div class="img-content"></div>
+        </div>
+        <div class="social"><a href="javascript:;">
+            <div class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+          </a><a href="javascript:;">
+            <div class="ig"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+          </a><a href="javascript:;">
+            <div class="tw"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+          </a></div>
+        <div class="text-container">
+          <h2 class="title">Tom Hanks</h2>
+          <div class="content">
+            <p>Born on July 9, 1956, in Concord, California, actor Tom Hanks began performing with the Great Lakes
+              Shakespeare Festival in 1977, later moving to New York City. He starred in the television sitcom Bosom
+              Buddies, but became far more known when he starred in the Ron Howard film Splash. He went on to star in
+              many more popular and acclaimed movies, including Big, Forrest Gump and Cast Away, en route to becoming
+              one of the most powerful and well-respected actors in Hollywood.</p>
+          </div>
+          <div class="readmore">
+            <h3>show more</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script>
+    $(function () {
+      var getTxt = $('.content p').text();
+      var realTxt = [getTxt]
+      var textCol = [getTxt]
+      var wordsCount = textCol[0].split(' ').length;
+      var words = textCol[0].split(' ');
+      var wordsLimit = 40;
+      var limitCol;
+
+      $('.readmore h3').click(function () {
+        if ($(this).text() === "show more") {
+          $('.content p').text(realTxt.join(' '));
+          $('.content').addClass('scroll');
+          $(this).text('show less');
+          $('.item').addClass('showfull');
+        } else {
+          $('.content p').text(limitCol);
+          $(this).text('show more');
+          $('.item').removeClass('showfull');
+        }
+      });
+
+      if (wordsLimit <= wordsCount) {
+        words.splice(wordsLimit, wordsCount - wordsLimit);
+        words = words.join(' ');
+        $('.content p').text(words + '...');
+        limitCol = $('.content p').text();
+      }
+
+      $('.like').click(function () {
+        $(this).toggleClass('clicked');
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus_textbox</title>
+    <style>
+        div {
+            margin: 100px;
+        }
+
+        .get_focus {
+            border: 1px solid #dddddd85;
+            border-radius: 5px;
+            height: 20px;
+            font-size: large;
+            width: 100%;
+            overflow: hidden;
+            transition: all .15s ease-in;
+        }
+
+        .get_focus:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" class="get_focus" />
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Loading_border</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <style>
+    body,
+    html,
+    #app {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+    }
+
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    #app {
+      overflow: auto;
+    }
+
+    #app #loading-indicators {
+      left: 50%;
+      margin: 20px;
+      margin-top: 100px;
+      position: absolute;
+      top: 0px;
+      transform: translateX(-50%);
+    }
+
+    #app #loading-indicators .loading-indicator {
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+      height: 200px;
+      margin: 20px auto;
+      overflow: hidden;
+      position: relative;
+      width: 322px;
+    }
+
+    #app #loading-indicators .loading-indicator h1 {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      font-family: "Roboto", san-serif;
+      font-size: 1em;
+      font-weight: 400;
+      margin: 0px;
+      text-align: center;
+      z-index: 3;
+    }
+
+    #app #loading-indicators .loading-indicator:before,
+    #app #loading-indicators .loading-indicator:after {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      content: "";
+    }
+
+    #app #loading-indicators .loading-indicator:after {
+      background-color: white;
+      border-radius: 13px;
+      height: calc(100% - 4px);
+      width: calc(100% - 4px);
+    }
+
+    #app #loading-indicators .loading-indicator:before {
+      animation: loading-indicator-rotation 3s linear infinite;
+      background: #03a9f4;
+      height: 150px;
+      width: 200%;
+    }
+
+    #app #loading-indicators #loading-indicator__1:before {
+      background: #03a9f4;
+    }
+
+    #app #loading-indicators #loading-indicator__2:before {
+      background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+      height: 200%;
+    }
+
+    #app #loading-indicators #loading-indicator__3:before {
+      background: linear-gradient(to right, #ff6f00 50%, #03a9f4 50%);
+      height: 75px;
+    }
+
+    @keyframes loading-indicator-rotation {
+      from {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+      }
+
+      to {
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div id="app">
+    <div id="loading-indicators">
+      <div class="loading-indicator" id="loading-indicator__1">
+        <h1>Loading...</h1>
+      </div>
+      <div class="loading-indicator" id="loading-indicator__2">
+        <h1>Loading...</h1>
+      </div>
+      <div class="loading-indicator" id="loading-indicator__3">
+        <h1>Loading...</h1>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='https://codepen.io/Hyperplexed/pen/QOvrzd/0299c8b36352c72cbfe8df48b47b54ca.js'></script>
+</body>
+
+</html>

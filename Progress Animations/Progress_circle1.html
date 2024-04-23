@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Progress_circle1</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .conainer {
+      width: 600px;
+      margin: 100px auto;
+      font-family: 'Arial'
+    }
+
+    .circle_percent {
+      font-size: 50px;
+      width: 1em;
+      height: 1em;
+      position: relative;
+      background: #eee;
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-block;
+      margin: 20px;
+    }
+
+    .circle_inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1em;
+      height: 1em;
+      clip: rect(0 1em 1em .5em);
+    }
+
+    .round_per {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1em;
+      height: 1em;
+      background: #e4a6d2;
+      clip: rect(0 1em 1em .5em);
+      transform: rotate(180deg);
+      transition: 1s;
+    }
+
+    .percent_more .circle_inner {
+      clip: rect(0 .5em 1em 0em);
+    }
+
+    .percent_more:after {
+      position: absolute;
+      left: .5em;
+      top: 0em;
+      right: 0;
+      bottom: 0;
+      background: #e4a6d2;
+      content: '';
+    }
+
+    .circle_inbox {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      right: 3px;
+      bottom: 3px;
+      background: #fff;
+      z-index: 3;
+      border-radius: 50%;
+    }
+
+    .percent_text {
+      position: absolute;
+      font-size: 12px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="conainer">
+    <div class="circle_percent" data-percent="75">
+      <div class="circle_inner">
+        <div class="round_per"></div>
+      </div>
+    </div>
+    <div class="circle_percent" data-percent="25">
+      <div class="circle_inner">
+        <div class="round_per"></div>
+      </div>
+    </div>
+    <div class="circle_percent" data-percent="60">
+      <div class="circle_inner">
+        <div class="round_per"></div>
+      </div>
+    </div>
+    <div class="circle_percent" data-percent="95">
+      <div class="circle_inner">
+        <div class="round_per"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- partial -->
+  <script>
+    $(".circle_percent").each(function () {
+      var $this = $(this),
+        $dataV = $this.data("percent"),
+        $dataDeg = $dataV * 3.6,
+        $round = $this.find(".round_per");
+      $round.css("transform", "rotate(" + parseInt($dataDeg + 180) + "deg)");
+      $this.append('<div class="circle_inbox"><span class="percent_text"></span></div>');
+      $this.prop('Counter', 0).animate({ Counter: $dataV },
+        {
+          duration: 2000,
+          easing: 'swing',
+          step: function (now) {
+            $this.find(".percent_text").text(Math.ceil(now) + "%");
+          }
+        });
+      if ($dataV >= 51) {
+        $round.css("transform", "rotate(" + 360 + "deg)");
+        setTimeout(function () {
+          $this.addClass("percent_more");
+        }, 1000);
+        setTimeout(function () {
+          $round.css("transform", "rotate(" + parseInt($dataDeg + 180) + "deg)");
+        }, 1000);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

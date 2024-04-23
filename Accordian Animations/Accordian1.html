@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Accordion</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+        .panel {
+            background-color: white;
+            border-left: 1px solid whitesmoke;
+            border-right: 1px solid whitesmoke;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-in-out;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        button.accordion {
+            width: 100%;
+            background-color: whitesmoke;
+            border: none;
+            outline: none;
+            text-align: left;
+            padding: 15px 20px;
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.2s linear;
+        }
+
+        button.accordion:after {
+            content: "\f150";
+            font-family: "fontawesome";
+            font-size: 18px;
+            float: right;
+        }
+
+        button.accordion.is-open:after {
+            content: "\f151";
+        }
+
+        button.accordion:hover,
+        button.accordion.is-open {
+            background-color: #ddd;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Accordions</h1>
+
+        <button class="accordion">Front-End Projects</button>
+        <div class="panel">
+            <p>
+                Are you trying to launch your career in front-end development? Then
+                you need to have an interesting portfolio. Not only that, you need to
+                have significant experience and skill in front-end development to bag
+                the job of your dreams.
+            </p>
+        </div>
+
+        <button class="accordion">Programming Languages</button>
+        <div class="panel">
+            <p>
+                If your career advancement or career change plans require you to
+                master a programming language, you may be wondering which language to
+                learn. we recommend choosing something more modern, widely used and
+                contains lots of packages or libraries.
+            </p>
+        </div>
+
+        <button class="accordion">JavaScript Frameworks</button>
+        <div class="panel">
+            <p>
+                A JavaScript framework is a type of tool that helps developers work
+                with JavaScript. Technically, it is an abstraction written in
+                JavaScript, i.e. a kind of simplification of the problem under
+                consideration.
+            </p>
+        </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+<script>
+    const accordionBtns = document.querySelectorAll(".accordion");
+
+    accordionBtns.forEach((accordion) => {
+        accordion.onclick = function () {
+            this.classList.toggle("is-open");
+
+            let content = this.nextElementSibling;
+            console.log(content);
+
+            if (content.style.maxHeight) {
+                //this is if the accordion is open
+                content.style.maxHeight = null;
+            } else {
+                //if the accordion is currently closed
+                content.style.maxHeight = content.scrollHeight + "px";
+                console.log(content.style.maxHeight);
+            }
+        };
+    });
+</script>
+
+</html>

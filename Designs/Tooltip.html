@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+            align-content: space-around;
+        }
+
+        div {
+            margin: 75px;
+        }
+
+        h1 span {
+            visibility: hidden;
+            background-color: black;
+            color: white;
+            padding: 3px 6px;
+            font-size: 15px;
+            font-weight: 500;
+            font-style: normal;
+            font-family: monospace;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .Top span {
+            top: -46px;
+            right: 95px;
+        }
+
+        .Left span {
+            bottom: 6px;
+            right: 204px;
+        }
+
+        .Right span {
+            left: 7px;
+            bottom: 6px;
+        }
+
+        .Bottom span {
+            top: 38px;
+            right: 95px;
+        }
+
+        .Top span::after {
+            content: "";
+            position: absolute;
+            top: 29px;
+            right: 63px;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .Left span::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent black;
+        }
+
+        .Right span::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent black transparent transparent;
+        }
+
+        .Bottom span::after {
+            content: "";
+            position: absolute;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+            bottom: 24px;
+            right: 63px;
+        }
+
+        h1:hover span {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 class="Top">likith<span>hovered Bottom</span></h1>
+        <h1 class="Right">likith <span>hovered Right</span></h1>
+        <h1 class="Left">likith<span>hovered Left</span></h1>
+        <h1 class="Bottom">likith<span>hovered Bottom</span></h1>
+    </div>
+</body>
+
+</html>
